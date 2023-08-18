@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "coc-db": ">=0.0.44"
+  }
+}
