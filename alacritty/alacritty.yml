@@ -20,6 +20,7 @@ window:
   padding:
     x: 25
     y: 20
+  option_as_alt: OnlyLeft
 
 font:
   size: 21.0

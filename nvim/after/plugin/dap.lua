@@ -1,4 +1,4 @@
---debugging
+-- Debugging
 
 local ok, dap = pcall(require, "dap")
 if not ok then return end
@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>L", ":lua require'dap'.set_breakpoint(nil, nil, vim
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
 vim.keymap.set("n", "<leader>dw", function ()
-    require('dap').run({
+  require('dap').run({
     type = "go",
     name = "TestAllSuites",
     request = "launch",

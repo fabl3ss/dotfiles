@@ -23,7 +23,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+  vim.cmd("so")
 end)
 
 --vim.keymap.set("n", "<leader>gs)s", ":let a=system('uuidgen | tr ''[:upper:]'' ''[:lower:]''') | let b=substitute(a,'[\r\n]*$','','g') | exec 'normal i'.b<CR>")
