@@ -4,7 +4,8 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
 	'gopls',
-	'lua_ls'
+	'lua_ls',
+--  'cucumber_language_server'
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -21,5 +22,15 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+
+--require'lspconfig'.cucumber_language_server.setup{
+--  cmd = { "cucumber-language-server", "--stdio" },
+--  filetypes = { "cucumber", "feature" },
+--  root_dir = require("lspconfig").util.find_git_ancestor,
+--  settings = {
+--      features= {'features/**/*.feature'},
+--      glue = {'**/*.go'}
+--  }
+--}
 
 lsp.setup()

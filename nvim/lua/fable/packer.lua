@@ -1,35 +1,55 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
 
+local packer_bootstrap = ensure_packer()
 
+require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  -- My plugins here
+  -- use 'foo1/bar1.nvim'
+  -- use 'foo2/bar2.nvim'
 
-
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.1',
+		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
 -- Appearance
 	use 'ellisonleao/gruvbox.nvim'
-    use 'nyoom-engineering/oxocarbon.nvim'
-    use { "bluz71/vim-moonfly-colors", as = "moonfly" }
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
-    use { "xiyaowong/transparent.nvim", as = "transparent" }
+  use 'nyoom-engineering/oxocarbon.nvim'
+  use { "bluz71/vim-moonfly-colors", as = "moonfly" }
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
+  use { "xiyaowong/transparent.nvim", as = "transparent" }
+  use 'tinted-theming/base16-vim'
+  use 'RRethy/nvim-base16'
 
 -- Navigation
 	use 'theprimeagen/harpoon'
 	use 'mbbill/undotree'
-
 -- Debugging
     use 'mfussenegger/nvim-dap'
     use 'leoluz/nvim-dap-go'
@@ -80,3 +100,4 @@ return require('packer').startup(function(use)
     use 'towolf/vim-helm'
 
 end)
+

@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/maksym.chaika/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -78,6 +78,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["base16-vim"] = {
+    loaded = true,
+    path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/tinted-theming/base16-vim"
   },
   catppuccin = {
     loaded = true,
@@ -143,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/moonfly",
     url = "https://github.com/bluz71/vim-moonfly-colors"
+  },
+  ["nvim-base16"] = {
+    loaded = true,
+    path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/nvim-base16",
+    url = "https://github.com/RRethy/nvim-base16"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -215,6 +225,11 @@ _G.packer_plugins = {
     path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  transparent = {
+    loaded = true,
+    path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/transparent",
+    url = "https://github.com/xiyaowong/transparent.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/undotree",
@@ -239,6 +254,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-helm"] = {
+    loaded = true,
+    path = "/Users/maksym.chaika/.local/share/nvim/site/pack/packer/start/vim-helm",
+    url = "https://github.com/towolf/vim-helm"
   },
   ["vim-rhubarb"] = {
     loaded = true,
