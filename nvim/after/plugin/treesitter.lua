@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "go", "javascript", "typescript", "lua", "vim", "vimdoc", "query", "sql" },
+  ensure_installed = { "go", "javascript", "typescript", "lua", "vim", "vimdoc", "query", "sql", "python" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -21,4 +21,20 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  smart_rename = {
+    enable = true,
+    -- Assign keymaps to false to disable them, e.g. \`smart\_rename = false\`.       
+    keymaps = {
+      smart_rename = "grr",
+    },
+  },
 }
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local capabilities = vim.lsp.get_client_by_id(args.data.client_id).server_capabilities
+		if capabilities.renameProvider then
+			vim.keymap.set("n", "<leader>r", "vim.lsp.buf.rename", { buffer = true })
+		end
+	end
+})
